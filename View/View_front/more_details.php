@@ -40,22 +40,24 @@ $title = "more details" ;
                    <?php } ?>
                   <div class="d-flex  justify-content-around  align-items-center mt-4 ">
   
+                  
+  
+  
                     <div class="stats  ">
-                      <h6 class="ms-3">Followers</h6>
+                      <h6 class="">Projects</h6>
+                      <span>142</span>
+  
+                    </div>
+
+                    <div class="stats ms-3 ">
+                      <h6 class="">Followers</h6>
                       <span>8,797</span>
   
                     </div>
   
   
-                    <div class="stats ">
-                      <h6 class="ms-3">Projects</h6>
-                      <span>142</span>
-  
-                    </div>
-  
-  
-                    <div class="stats ">
-                      <h6 class="ms-3">Ranks</h6>
+                    <div class="stats ms-3">
+                      <h6 class="">Ranks</h6>
                       <span>129</span>
   
                     </div>

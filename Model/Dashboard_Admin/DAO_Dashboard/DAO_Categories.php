@@ -90,10 +90,9 @@ class model_Categories extends Database {
     
 
     public function UpdateCategories($idname,$name, $Bio) {
-      
-            $consulta = $this->getConnection()->prepare("UPDATE `categories` SET `name`='$name',`Bio`='$Bio' WHERE name = '$idname' 
-              
-            ");
+            $sql = "UPDATE `categories` SET `name`='$name',`Bio`='$Bio' WHERE name = '$idname';";
+            echo "<br>".$sql."<br>";
+            $consulta = $this->getConnection()->prepare($sql);
     
             $result = $consulta->execute();
     

@@ -46,7 +46,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mx-lg-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>   </li>
+              <a class="nav-link text-black " href="index.php">Home <span class="sr-only">(current)</span></a>   </li>
               <?php if (isset( $_SESSION["Admin"]) || isset($_SESSION["auteur"])) { }else {     ?>
                 <li class="nav-item active">
               <a href="index.php?action=form_login" class="nav-link  ">log in</a>   </li>

@@ -69,21 +69,21 @@ $title = "Home" ;
     <div class="gallery-inner container py-sm-5">
       <div class="row stats-con py-md-5">
         <div class="col-md-4 col-6 stats_info counter_grid">
-          <p class="counter">1500 </p>
+          <p class="counter"><?= $num_All_wikis ?> </p>
           <span class="plus">+</span><br>
-          <h3>Acres Of Forests</h3>
+          <h3>Acres Of wikis</h3>
           <p class="para-counter">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo Semper.</p>
         </div>
         <div class="col-md-4 col-6 stats_info counter_grid mt-md-0 mt-0">
-          <p class="counter">1160</p>
+          <p class="counter"><?= $num_All_auteur ?></p>
           <span class="plus">+</span><br>
-          <h3>Million People</h3>
+          <h3>Acres Of auteur</h3>
           <p class="para-counter">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo Semper.</p>
         </div>
         <div class="col-md-4 col-6 stats_info counter_grid2 mt-md-0 mt-4">
-          <p class="counter">1145 </p>
-          <span class="plus">k</span><br>
-          <h3>Thousand Hectares </h3>
+          <p class="counter"><?= $num_AllCategories ?></p>
+          <span class="plus">+</span><br>
+          <h3>Thousand Categories</h3>
           <p class="para-counter">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo Semper.</p>
         </div>
       </div>
@@ -111,7 +111,7 @@ $title = "Home" ;
                       ></textarea>
               </div>
          
-              <select class="form-select form-select-lg mb-3" id="floatingSelect"
+              <select required class="form-select form-select-lg mb-3" id="floatingSelect"
                             aria-label="Large select example" name="Categories">
                             <option selected>Categories</option>
                             <?php if (isset($AllCategories)) {    ?>
@@ -125,7 +125,7 @@ $title = "Home" ;
               <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
               <?php if (isset($AllTags)) {    ?>
                             <?php foreach ($AllTags as  $value) {      ?>
-                <input type="checkbox" name="tags[]" value="<?= $value->gettag_id()?>" class="btn-check" id="flexCheckChecked_<?= $value->gettag_id()?>" autocomplete="off">
+                <input  type="checkbox" name="tags[]" value="<?= $value->gettag_id()?>" class="btn-check" id="flexCheckChecked_<?= $value->gettag_id()?>" autocomplete="off">
                 <label class="btn btn-outline-primary ms-2" for="flexCheckChecked_<?= $value->gettag_id()?>"><?= $value->getTag_name()?></label>
 
                 <?php }} ?>
@@ -148,10 +148,19 @@ $title = "Home" ;
           </div> 
           <div class="form-buttonhny text-lg-right mt-5 pt-4">
             <button type="submit" name="submit" class="btn btn-style btn-primary">Add wiki</button>
-        </div>        
+        </div>  
+       
          </div>
+         
         </form>
       </div>
+      <?php if (isset($_GET["error"])) {    ?> 
+
+<div class="alert alert-danger mt-4" role="alert">
+<?= $_GET["error"] ?>
+</div>  
+
+<?php } ?>  
       <?php  }else {    ?>
 
                 <div class="border rounded p-4 pb-0 mb-4">

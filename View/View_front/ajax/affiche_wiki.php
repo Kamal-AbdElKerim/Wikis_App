@@ -2,7 +2,7 @@
 
 include "../../../Model/conn.php" ;
 
-class model_wikis extends Database {
+class DAO_model_wikis extends Database {
 
 
 
@@ -20,8 +20,8 @@ class model_wikis extends Database {
 
 }
 
-$model_wikis = new model_wikis ;
-$wikis = $model_wikis->getAllwikis() ; 
+$DAO_model_wikis = new DAO_model_wikis ;
+$wikis = $DAO_model_wikis->getAllwikis() ; 
 
 
 echo json_encode($wikis);

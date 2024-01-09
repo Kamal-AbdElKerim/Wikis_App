@@ -92,6 +92,9 @@
         case "update_form_wikis":
             $wikis_Controller->update_form_wikis() ; 
             break;
+        case "updateWikis":
+            $wikis_Controller->update_Wikis() ; 
+            break;
         case "moredetails":
             $wikis_Controller->moredetails_wiki() ; 
             break;

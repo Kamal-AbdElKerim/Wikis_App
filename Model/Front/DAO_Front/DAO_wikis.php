@@ -2,7 +2,7 @@
 
 include "Model\Front\Class_Front\Class_wikis.php" ;
 
-class model_wikis extends Database {
+class DAO_model_wikis extends Database {
 
 
 
@@ -96,16 +96,16 @@ class model_wikis extends Database {
 
     }
     
-    public function Insertwikis($title, $contenu,$img , $catg_name, $auteur_id, $tags) { 
+    public function Insertwikis($model_wiki,$tags) { 
        
         $consulta = $this->getConnection()->prepare("INSERT INTO wikis (`title`, `contenu`,`img`, `catg_name`, `auteur_id`)
                                                     VALUES (:title, :contenu,:img, :catg_name, :auteur_id)");
         
-        $consulta->bindParam(':title', $title);
-        $consulta->bindParam(':contenu', $contenu);
-        $consulta->bindParam(':img', $img);
-        $consulta->bindParam(':catg_name', $catg_name);
-        $consulta->bindParam(':auteur_id', $auteur_id);
+        $consulta->bindParam(':title', $model_wiki->getTitle());
+        $consulta->bindParam(':contenu', $model_wiki->getContenu());
+        $consulta->bindParam(':img', $model_wiki->getImg());
+        $consulta->bindParam(':catg_name', $model_wiki->getCatgName());
+        $consulta->bindParam(':auteur_id', $model_wiki->getWikiId());
         $result = $consulta->execute();
     
         // Get the ID of the last inserted wiki
@@ -126,32 +126,54 @@ class model_wikis extends Database {
     
   
 
-    public function Updatewikis($id_wiki, $title, $contenu, $catg_name, $auteur_id) {
+    public function Updatewikis($model_wiki, $tags) {
         try {
             $consulta = $this->getConnection()->prepare("
                 UPDATE wikis 
                 SET 
                 title = :title,
                 contenu = :contenu,
+                img = :img,
                 catg_name = :catg_name,
                 auteur_id = :auteur_id
                 WHERE id_wiki = :id_wiki 
             ");
     
             $result = $consulta->execute(array(
-                ":title" => $title,
-                ":contenu" => $contenu,
-                ":catg_name" => $catg_name,
-                ":auteur_id" => $auteur_id,
-                ":id_wiki" => $id_wiki
+                ":title" => $model_wiki->getTitle(),
+                ":contenu" => $model_wiki->getContenu(),
+                ":img" => $model_wiki->getImg(),
+                ":catg_name" => $model_wiki->getCatgName(),
+                ":auteur_id" => $model_wiki->getWikiId(),
+                ":id_wiki" => $model_wiki->getId_wiki()
             ));
     
-            return $result;
-            
+            $wikiId = $model_wiki->getId_wiki();
+    
+            // Delete existing tags associated with the wiki
+            $deleteConsulta = $this->getConnection()->prepare("DELETE FROM `wiki_tags` WHERE wiki_id = :wiki_id");
+            $deleteConsulta->bindParam(':wiki_id', $wikiId);
+            $deleteResult = $deleteConsulta->execute();
+    
+            // Insert new tags for the wiki
+            $insertConsulta = $this->getConnection()->prepare("INSERT INTO wiki_tags (`wiki_id`, `tag_id`)
+                                                                VALUES (:wiki_id, :tag_id)");
+    
+            foreach ($tags as $tag_id) {
+                $insertConsulta->bindParam(':wiki_id', $wikiId);
+                $insertConsulta->bindParam(':tag_id', $tag_id);
+                $insertResult = $insertConsulta->execute();
+            }
         } catch (PDOException $e) {
-            return false;
+            // Handle exceptions here
+            // For example: log the error, throw a custom exception, etc.
+            echo "Error: " . $e->getMessage();
         }
     }
+    
+    
+          
+ 
     
     
 
