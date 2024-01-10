@@ -32,7 +32,7 @@ class Wikis {
         return $this->contenu;
     }
 
-    public function getImg()
+      public function getImg()
     {
         return $this->img;
     }

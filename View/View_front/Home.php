@@ -36,7 +36,7 @@ $title = "Home" ;
   </section>
   <!-- /main-slider -->
   <!-- home page block1 -->
-  <section id="about" class="home-services pt-lg-0">
+  <section id="about" class="home-services pt-lg-0 mb-5">
     <div class="container">
       <div class="row">
 
@@ -63,6 +63,45 @@ $title = "Home" ;
       </div>
     </div>
   </section>
+
+    <!-- about page about section -->
+    <section class="w3l-index3" id="about">
+
+    
+    <div class="midd-w3 py-5">
+    <div class=" container mt-3 ms-3 row  justify-content-between ">
+   
+      <div class="col-sm-5 ms-5 ps-5">
+        <input type="search" class="form-control" id="keywordInput" placeholder="search blog">
+      </div>
+  
+  
+            <div class=" col-1 ">
+            <select  id="mySelect" class="form-select" aria-label="Default select example">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+      </select>
+            </div>            
+       </div>
+       
+      <div class="container py-lg-4 " id="data" >
+
+   
+ 
+      </div>
+      <nav aria-label="..." class=" d-flex  justify-content-center mt-4  w-100 ">
+                  <ul class="pagination " id="paginate">
+            
+                  
+                  </ul>
+                </nav>
+    </div>
+  </section>
+
+
+  <!-- //home page block grids -->
   <!-- //home page block1 -->
    <!-- stats -->
    <section class="w3l-stats py-5 mt-5" id="stats">
@@ -91,11 +130,13 @@ $title = "Home" ;
   </section>
   <!-- //stats -->
    <!-- /contact-section -->
+
+   
 <section class="w3l-contact-2 py-5" id="contact">
   <div class="container py-lg-5 py-md-4 py-2">
-    <span class="title-subhny mb-2 text-center">Send a Message</span>
+    <span class="title-subhny mb-2 text-center">wiki a wikis</span>
     <h3 class="title-w3l mb-5 text-center">Add wiki</h3>
-    <?php if (isset($_SESSION["auteur"])) {    ?>
+    <?php if (isset($_SESSION["auteur"]) || isset($_SESSION["Admin"])) {    ?>
 
       <div class="contact-grids d-grid">
         <div class="contact-right">
@@ -122,11 +163,13 @@ $title = "Home" ;
                         <?php }} ?>
                           
                         </select>
-              <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+              <div class="btn-group d-flex flex-wrap " role="group" aria-label="Basic checkbox toggle button group">
               <?php if (isset($AllTags)) {    ?>
                             <?php foreach ($AllTags as  $value) {      ?>
-                <input  type="checkbox" name="tags[]" value="<?= $value->gettag_id()?>" class="btn-check" id="flexCheckChecked_<?= $value->gettag_id()?>" autocomplete="off">
+              <div>
+              <input  type="checkbox" name="tags[]" value="<?= $value->gettag_id()?>" class="btn-check" id="flexCheckChecked_<?= $value->gettag_id()?>" autocomplete="off">
                 <label class="btn btn-outline-primary ms-2" for="flexCheckChecked_<?= $value->gettag_id()?>"><?= $value->getTag_name()?></label>
+              </div>
 
                 <?php }} ?>
               </div>
@@ -154,14 +197,14 @@ $title = "Home" ;
          
         </form>
       </div>
-      <?php if (isset($_GET["error"])) {    ?> 
+                    <?php if (isset($_GET["error"])) {    ?> 
 
-<div class="alert alert-danger mt-4" role="alert">
-<?= $_GET["error"] ?>
-</div>  
+              <div class="alert alert-danger mt-4" role="alert">
+              <?= $_GET["error"] ?>
+              </div>  
 
-<?php } ?>  
-      <?php  }else {    ?>
+              <?php } ?>  
+                    <?php  }else {    ?>
 
                 <div class="border rounded p-4 pb-0 mb-4">
                               <figure class="text-center">
@@ -175,7 +218,7 @@ $title = "Home" ;
                                   <figcaption class="blockquote">
                                 
                                   
-                                  <a class="btn btn-outline-light m-2" href="index.php?action=form_login"><i class="fa fa-home me-2"></i>Log in</a>
+                                  <a class="btn  btn-outline-info  m-2" href="index.php?action=form_login"><i class="fa fa-home me-2"></i>Log in</a>
 
                                   </figcaption>
                               </figure>
@@ -188,37 +231,14 @@ $title = "Home" ;
 </section>
 
 <!-- //contact-section -->
-  <!-- about page about section -->
-  <section class="w3l-index3" id="about">
-    <div class=" d-flex  justify-content-center ">
-      <div class="col-sm-5">
-        <input type="search" class="form-control" id="inputsearch" placeholder="search blog">
-      </div>
-    </div>
-    <div class="midd-w3 py-5">
-      <div class="container py-lg-5 py-md-3" id="data" >
-
-   
- 
-      </div>
-      <nav aria-label="..." class=" d-flex  justify-content-center  w-100 ">
-                  <ul class="pagination " id="paginate">
-            
-                  
-                  </ul>
-                </nav>
-    </div>
-  </section>
-
-
-  <!-- //home page block grids -->
- 
-
 
  
 
 
+ 
+  <script src="View\View_front\ajax\affiche_wikis.js"></script>
 
-         <script src="View\View_front\ajax\affiche_wikis.js"></script>
+
+
     <?php $contant =  ob_get_clean();
     include_once "View\layout_front.php" ; 

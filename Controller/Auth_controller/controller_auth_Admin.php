@@ -34,6 +34,7 @@ class controller_auth_Admin
         if ($Admin === true) {
 
             $_SESSION["Admin"] = $email;
+            $_SESSION["admin_id"] = $admin_id;
 
             header("Location: index.php?action=Page_Categories");
 

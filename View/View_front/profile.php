@@ -29,15 +29,14 @@ $title = "more details" ;
                   <h4 class="mb-2"><?= $allwiki[0]["name"] ?></h4>
                   <span class="text-muted d-block mb-4">Los Angles</span>
 
-                  <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $allwiki[0]["email"] ) {    ?>
+                  <?php if (!isset($_SESSION["auteur_id"])) {    ?>
   
-                  <button class="btn  btn-success  btn-sm follow">My Profile</button>
-
+                  <button class="btn btn-primary btn-sm follow">Follow</button>
                  
                   <?php }else {     ?>
                    
-                    <button class="btn btn-primary btn-sm follow">Follow</button>
-
+                   <button class="btn  btn-success  btn-sm follow">My Profile</button>
+               
                    <?php } ?>
                   <div class="d-flex  justify-content-around  align-items-center mt-4 ">
   
@@ -74,7 +73,7 @@ $title = "more details" ;
             <div class="col-lg-7  mt-lg-0 mt-5  align-self">
               
                 <div class=" text-center rounded-2 border border-1  p-4">
-                <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $allwiki[0]["email"] ) {    ?>
+                  <?php if (isset($_SESSION["auteur_id"])) {    ?>
 
                    <div class=" d-flex  justify-content-end mb-3">
                     <div>

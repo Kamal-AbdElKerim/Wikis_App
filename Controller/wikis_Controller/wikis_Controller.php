@@ -9,8 +9,7 @@ class wikis_Controller {
     public function moredetails_wiki(){
 
         $DAO_model_wikis = new DAO_model_wikis() ; 
-         
-      $allwiki =   $DAO_model_wikis->getAllwikisByID($_GET["id_wiki"]);
+        $allwiki =   $DAO_model_wikis->getAllwikisByID($_GET["id_wiki"]);
 
     //   echo "<pre>";
     //   print_r($allwiki);
