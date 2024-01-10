@@ -14,10 +14,36 @@ class controller_auth_Admin
 
     }
 
+    function validateLoginData($email, $password)
+    {
+        // Validation logic...
+        // Check for validation errors and return them as an array
+        $errors = [];
+
+        // Validate Email
+        if (empty($email)) {
+            $errors['emailError'] = "Email field is required.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['emailError'] = "Invalid email format.";
+        }
+
+        // Validate Password
+        if (empty($password)) {
+            $errors['passwordError'] = "Password field is required.";
+        }
+
+        return $errors;
+    }
+
     function controller_check_Admin_auteur()
     {
         extract($_POST);
 
+        $_SESSION["email_login"] = $email ;
+
+        $errors = $this->validateLoginData($email, $password);
+
+        if (empty($errors)) {
         $model_admin = new model_admin();
         $Admin =  $model_admin->getadmin($email , $password);
 
@@ -46,6 +72,7 @@ class controller_auth_Admin
             $auteur_id =  $model_auteur->getByemailauteur($email);
 
             $_SESSION["auteur"] = $email;
+            $_SESSION["auteur_name"] = $name;
             $_SESSION["auteur_id"] = $auteur_id["auteur_id"];
 
             header("Location: index.php");
@@ -55,6 +82,12 @@ class controller_auth_Admin
             header("Location: index.php?action=form_login&error=email or password false");
 
         }
+
+    } else {
+        $errorParams = http_build_query($errors);
+        header("Location: index.php?action=form_login&$errorParams");
+        exit();
+    }
     
     }
 

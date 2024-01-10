@@ -117,7 +117,7 @@ class wikis_Controller {
         // print_r($_POST);
        
 
-        if (isset($_POST['submit']) && isset($_POST["Title"])&& isset($_POST["Contenu"])&& isset($_POST["Categories"])&& isset($_POST["tags"])) {
+        if (isset($_POST['submit']) && !empty($Title) && isset($_POST["Contenu"])&& isset($_POST["Categories"])&& isset($_POST["tags"])) {
             // Function to generate a unique filename
             function generateUniqueFilename( $filename) {
               $timestamp = time(); // Get current timestamp

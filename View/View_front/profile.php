@@ -26,7 +26,7 @@ $title = "more details" ;
                 <div class=" text-center mt-3">
                  
   
-                  <h4 class="mb-2"><?= $profile[0]["name"] ?></h4>
+                  <h4 class="mb-2"><?=  (isset($profile[0]["name"])) ? $profile[0]["name"] :  $_SESSION["auteur_name"] ; ?></h4>
                   <span class="text-muted d-block mb-4">Los Angles</span>
 
                   <?php if (isset($_SESSION["auteur"])) {
@@ -35,7 +35,7 @@ $title = "more details" ;
                   if (isset($_SESSION["auteur_id"])) {
                    $SESSION_auteur_id = $_SESSION["auteur_id"] ;
                   }
-                  if (isset($SESSION_auteur)) {
+                  if (isset($SESSION_auteur) && isset($profile[0]["email"])) {
                     
                  
                    if ($SESSION_auteur ===  $profile[0]["email"]) {   ?>
