@@ -47,7 +47,7 @@ $title = "more details" ;
   
   
                     <div class="stats  ">
-                      <h6 class="">Projects</h6>
+                      <h6 class="">Comment</h6>
                       <span>142</span>
   
                     </div>
@@ -86,9 +86,9 @@ $title = "more details" ;
                     </div>
                    </div>
                  <?php } ?>
-                                
+                 <h2 class="text-start mt-5 mb-3"><?= $value["title"] ?></h2>
+
                   <img src="<?= $value["img"] ?>" class="img-fluid" alt="...">
-                  <h2 class="text-start mt-5 mb-3"><?= $value["title"] ?></h2>
                   <h6 class="title-subhny text-end mb-3">catg_name <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> <?= $value["catg_name"] ?></a></h6>
                   <!-- <h6 class="title-subhny">Tags <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> <?= $value["title"] ?></a></h6> -->
 
@@ -99,11 +99,39 @@ $title = "more details" ;
             </div>
              <?php } ?>
             </div>
-            <div class="col-lg-2  ">
-          
+            <div class="col-lg-2 ">
+              <div class="cardd border rounded-2 border-secondary p-5">
 
-   
-          </div>
+                <div class=" text-center mt-3">
+
+                  <div class="d-flex  justify-content-center   align-items-center mt-4 ">
+  <div>
+    
+                    <div class="stats  mb-3 ">
+                      <h6 class="">Wikis</h6>
+                      <span><?= count($profile) ?></span>
+  
+                    </div>
+
+                    <div class="stats mb-3 ">
+                      <h6 class="">Followers</h6>
+                      <span>8,797</span>
+  
+                    </div>
+  
+  
+                    <div class="stats mb-3">
+                      <h6 class="">Ranks</h6>
+                      <span>129</span>
+  
+                    </div>
+  </div>
+                  </div>
+                  
+                </div>
+                 
+               </div>
+            </div>
         </div>
       </div>
     </section>

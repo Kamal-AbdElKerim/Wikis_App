@@ -87,7 +87,7 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
         </div>
       </div>
       <div class="col-lg-7 mb-lg-0 mb-md-5 mb-4 align-self">
-        <h6 class="title-subhny">created by <a href=""> ${elem.name}</a></h6>
+        <h6 class="title-subhny">created by <a href="index.php?action=profile&auteur_id=${elem.auteur_id}"> ${elem.name}</a></h6>
         <h3 class="title-left mx-0">${elem.title}</h3>
         <h6 class="title-subhny">Categorie <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> ${elem.catg_name}</a></h6>
         <h6 class="title-subhny">Tags <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> ${elem.tag_name}</a></h6>
