@@ -22,6 +22,18 @@ class model_auteur extends Database {
 
     }
 
+    public function getAllauteur_profile($auteur_id){
+
+        $consulta = $this->getConnection()->prepare("SELECT * FROM auteur a JOIN wikis w ON a.auteur_id = w.auteur_id AND a.auteur_id = $auteur_id" );
+        $consulta->execute();
+        $result = $consulta->fetchAll();
+
+     
+        return $result;
+       
+
+    }
+
     
     public function getByauteur_idauteur($auteur_id){
         $consulta = $this->getConnection()->prepare("SELECT * 

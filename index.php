@@ -100,6 +100,13 @@
             break;
 
 
+
+
+        case "profile":
+            $controller_auth_auteur->profile_auteur() ; 
+            break;
+
+
         default:
        
             break; }

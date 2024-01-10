@@ -136,7 +136,7 @@ $title = "Home" ;
   <div class="container py-lg-5 py-md-4 py-2">
     <span class="title-subhny mb-2 text-center">wiki a wikis</span>
     <h3 class="title-w3l mb-5 text-center">Add wiki</h3>
-    <?php if (isset($_SESSION["auteur"]) || isset($_SESSION["Admin"])) {    ?>
+    <?php if (isset($_SESSION["auteur"])) {    ?>
 
       <div class="contact-grids d-grid">
         <div class="contact-right">
@@ -204,9 +204,14 @@ $title = "Home" ;
               </div>  
 
               <?php } ?>  
-                    <?php  }else {    ?>
+                    <?php  }elseif (isset($_SESSION["Admin"])) {    ?>
 
-                <div class="border rounded p-4 pb-0 mb-4">
+                        <h1 class="text-center">you admin</h1>
+
+                <?php }else {   ?>
+                 
+                
+                   <div class="border rounded p-4 pb-0 mb-4">
                               <figure class="text-center">
                                   <blockquote class="blockquote">
                                       <p>you have log in.</p>
@@ -223,10 +228,7 @@ $title = "Home" ;
                                   </figcaption>
                               </figure>
                   </div>
-
-                <?php } ?>
-    
-     
+              <?php } ?>
     </div>
 </section>
 

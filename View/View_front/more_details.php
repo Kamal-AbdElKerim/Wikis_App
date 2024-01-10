@@ -26,7 +26,7 @@ $title = "more details" ;
                 <div class=" text-center mt-3">
                  
   
-                  <h4 class="mb-2"><?= $allwiki[0]["name"] ?></h4>
+                  <h4 class="mb-2"><a href="index.php?action=profile&auteur_id=<?= $allwiki[0]["auteur_id"] ?>"><?= $allwiki[0]["name"] ?></a></h4>
                   <span class="text-muted d-block mb-4">Los Angles</span>
 
                   <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $allwiki[0]["email"] ) {    ?>

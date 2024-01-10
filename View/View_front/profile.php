@@ -26,18 +26,10 @@ $title = "more details" ;
                 <div class=" text-center mt-3">
                  
   
-                  <h4 class="mb-2"><?= $allwiki[0]["name"] ?></h4>
+                  <h4 class="mb-2"><?= $profile[0]["name"] ?></h4>
                   <span class="text-muted d-block mb-4">Los Angles</span>
 
-                  <?php if (!isset($_SESSION["auteur_id"])) {    ?>
-  
-                  <button class="btn btn-primary btn-sm follow">Follow</button>
-                 
-                  <?php }else {     ?>
-                   
-                   <button class="btn  btn-success  btn-sm follow">My Profile</button>
-               
-                   <?php } ?>
+           
                   <div class="d-flex  justify-content-around  align-items-center mt-4 ">
   
                   
@@ -71,47 +63,30 @@ $title = "more details" ;
         
 
             <div class="col-lg-7  mt-lg-0 mt-5  align-self">
-              
-                <div class=" text-center rounded-2 border border-1  p-4">
-                  <?php if (isset($_SESSION["auteur_id"])) {    ?>
+              <?php foreach ($profile as  $value) {   ?>
+  
+                <div class=" text-center rounded-2 border border-1 mb-4 p-4">
+                <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $value["email"] ) {    ?>
 
                    <div class=" d-flex  justify-content-end mb-3">
                     <div>
-              <a class="btn btn-square btn-outline-success m-1" href="index.php?action=update_form_wikis&id_wiki=<?= $allwiki[0]["id_wiki"] ?>"><i class="fa-regular fa-pen-to-square"></i></a>
-              <a class="btn btn-square btn-outline-primary m-1 modal-trigger" data-bs-toggle="modal" data-bs-name="<?= $allwiki[0]["title"] ?>"  data-bs-id="<?= $allwiki[0]["id_wiki"] ?>" href=""><i class="fa-solid fa-trash"></i></a>
+              <a class="btn btn-square btn-outline-success m-1" href="index.php?action=update_form_wikis&id_wiki=<?= $value["id_wiki"] ?>"><i class="fa-regular fa-pen-to-square"></i></a>
+              <a class="btn btn-square btn-outline-primary m-1 modal-trigger" data-bs-toggle="modal" data-bs-name="<?= $value["title"] ?>"  data-bs-id="<?= $value["id_wiki"] ?>" href=""><i class="fa-solid fa-trash"></i></a>
                     </div>
                    </div>
                  <?php } ?>
                                 
-                  <img src="<?= $allwiki[0]["img"] ?>" class="img-fluid" alt="...">
-                  <h2 class="text-start mt-5 mb-3"><?= $allwiki[0]["title"] ?></h2>
+                  <img src="<?= $value["img"] ?>" class="img-fluid" alt="...">
+                  <h2 class="text-start mt-5 mb-3"><?= $value["title"] ?></h2>
                   <p class=" text-start   text-black ">
-                  <?= $allwiki[0]["contenu"] ?>
+                  <?= $value["contenu"] ?>
                     </p>
                 
             </div>
+             <?php } ?>
             </div>
             <div class="col-lg-2  ">
-              <div class="text-center border-secondary  mt-5">
-            <div class="  rounded p-4 ">
-                        <h4 class=" text-center ">Categories</h4><hr>
-                        <button disabled type="button" class="btn  btn-success  m-1"
-                        style="font-size: 15px;">
-                        <?= $allwiki[0]["catg_name"] ?>
-                        </button>
-                 
-                    </div>
-                    <div class="  rounded p-3">
-                        <h3>tags</h3><hr>
-                        <?php foreach ($allwiki as  $value) {   ?>
-
-                        <button disabled type="button" class="btn  btn-primary   m-1 mb-2"
-                        style="font-size: 15px;">
-                        <?= $value["tag_name"] ?>
-                        </button>
-                    <?php } ?>
-                    </div>
-                    </div>
+          
 
    
           </div>
