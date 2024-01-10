@@ -35,6 +35,9 @@ $title = "more details" ;
                   if (isset($_SESSION["auteur_id"])) {
                    $SESSION_auteur_id = $_SESSION["auteur_id"] ;
                   }
+                  if (isset($SESSION_auteur)) {
+                    
+                 
                    if ($SESSION_auteur ===  $profile[0]["email"]) {   ?>
                   
                  
@@ -45,7 +48,7 @@ $title = "more details" ;
                   
                 
                    <button class="btn btn-primary btn-sm follow">Follow</button>
-                   <?php } ?>
+                   <?php }  }?>
 
                   <div class="d-flex  justify-content-around  align-items-center mt-4 ">
   
