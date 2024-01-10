@@ -29,7 +29,18 @@ $title = "more details" ;
                   <h4 class="mb-2"><?= $profile[0]["name"] ?></h4>
                   <span class="text-muted d-block mb-4">Los Angles</span>
 
-           
+                  <?php if ($_SESSION["auteur"] ===  $profile[0]["email"]) {   ?>
+                  
+                 
+
+                 
+
+                  <?php }else {    ?>
+                  
+                
+                   <button class="btn btn-primary btn-sm follow">Follow</button>
+                   <?php } ?>
+
                   <div class="d-flex  justify-content-around  align-items-center mt-4 ">
   
                   
@@ -78,6 +89,9 @@ $title = "more details" ;
                                 
                   <img src="<?= $value["img"] ?>" class="img-fluid" alt="...">
                   <h2 class="text-start mt-5 mb-3"><?= $value["title"] ?></h2>
+                  <h6 class="title-subhny text-end mb-3">catg_name <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> <?= $value["catg_name"] ?></a></h6>
+                  <!-- <h6 class="title-subhny">Tags <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> <?= $value["title"] ?></a></h6> -->
+
                   <p class=" text-start   text-black ">
                   <?= $value["contenu"] ?>
                     </p>

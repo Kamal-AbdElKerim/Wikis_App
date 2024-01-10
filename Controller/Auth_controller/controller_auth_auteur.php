@@ -57,9 +57,9 @@ class controller_auth_auteur
     function profile_auteur()  {
         $model_auteur = new model_auteur();
      $profile = $model_auteur->getAllauteur_profile($_GET["auteur_id"]) ;
-     echo "<pre>";
-     print_r($profile);
-     echo "</pre>";
+    //  echo "<pre>";
+    //  print_r($profile);
+    //  echo "</pre>";
         
         include "View\View_front\profile.php" ;
     }
