@@ -8,7 +8,7 @@ class DAO_model_wikis extends Database {
             $keyword = $_GET["keyword"];
             $consulta = $this->getConnection()->prepare("SELECT *
             FROM wikis w
-            JOIN auteur a ON w.auteur_id = a.auteur_id
+            JOIN auteur a ON w.auteur_id = a.auteur_id AND w.is_Active = 1
             LEFT JOIN (
                 SELECT wt.wiki_id, GROUP_CONCAT(t.tag_name SEPARATOR ', ') AS tag_name
                 FROM wiki_tags wt

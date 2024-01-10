@@ -64,7 +64,7 @@ class wikis_Controller {
   
         $DAO_model_wikis = new DAO_model_wikis() ; 
 
-        $model_wiki = new Wikis(null,$Title , $Contenu ,$uploadedFile,$Categories,null,$_SESSION["auteur_id"]);
+        $model_wiki = new Wikis(null,$Title , $Contenu ,$uploadedFile,$Categories,null,$_SESSION["auteur_id"],1);
 
          print_r($model_wiki);
 
@@ -167,7 +167,7 @@ class wikis_Controller {
 
       $DAO_model_wikis = new DAO_model_wikis() ; 
 
-      $model_wiki = new Wikis($id_wiki,$Title , $Contenu ,$uploadedFile,$Categories,null,$_SESSION["auteur_id"]);
+      $model_wiki = new Wikis($id_wiki,$Title , $Contenu ,$uploadedFile,$Categories,null,$_SESSION["auteur_id"],1);
 
     //    print_r($model_wiki);
 
@@ -181,8 +181,15 @@ class wikis_Controller {
       header("Location: index.php?action=update_form_wikis&id_wiki=$id_wiki&error=all input is required");
   }
 
-     
+    }
 
+
+    function all_wikis()  {
+
+        $DAO_model_wikis = new DAO_model_wikis() ; 
+        $All_wikis =  $DAO_model_wikis->getAllwikis();
+
+        include "View\Vew_Admin\Wikis\wiki.php";
         
     }
 

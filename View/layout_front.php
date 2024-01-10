@@ -29,7 +29,7 @@
   <header id="site-header" class="w3lhny-head fixed-top">
     <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0">
-        <h1> <a class="navbar-brand" href="index.html">
+        <h1> <a class="navbar-brand" href="index.php">
             <span class="sublog">Wikis.</span>
           </a></h1>
         <!-- if logo is image enable this   
@@ -68,8 +68,10 @@
               </a>
              
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <?php if (isset($_SESSION["auteur_id"])) {    ?>
+
+                <li><a class="dropdown-item" href="index.php?action=profile&auteur_id=<?= $_SESSION["auteur_id"] ?>">My Profile</a></li>
+                <?php  } ?>
                 <li><a href="index.php?action=LogOut" class="dropdown-item">Log Out</a></li>
               </ul> 
             </div>

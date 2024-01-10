@@ -31,7 +31,7 @@ $title = "more details" ;
 
                   <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $allwiki[0]["email"] ) {    ?>
   
-                  <button class="btn  btn-success  btn-sm follow">My Profile</button>
+                  <a class="btn  btn-success  btn-sm follow" href="index.php?action=profile&auteur_id=<?= $allwiki[0]["auteur_id"] ?>">My Profile</a>
 
                  
                   <?php }else {     ?>

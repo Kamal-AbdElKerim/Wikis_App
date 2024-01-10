@@ -29,7 +29,13 @@ $title = "more details" ;
                   <h4 class="mb-2"><?= $profile[0]["name"] ?></h4>
                   <span class="text-muted d-block mb-4">Los Angles</span>
 
-                  <?php if ($_SESSION["auteur"] ===  $profile[0]["email"]) {   ?>
+                  <?php if (isset($_SESSION["auteur"])) {
+                   $SESSION_auteur = $_SESSION["auteur"] ;
+                  }
+                  if (isset($_SESSION["auteur_id"])) {
+                   $SESSION_auteur_id = $_SESSION["auteur_id"] ;
+                  }
+                   if ($SESSION_auteur ===  $profile[0]["email"]) {   ?>
                   
                  
 
@@ -75,12 +81,20 @@ $title = "more details" ;
 
             <div class="col-lg-7  mt-lg-0 mt-5  align-self">
               <?php foreach ($profile as  $value) {   ?>
+                <?php if ($value["is_Active"]  === 0 &&  $SESSION_auteur_id !==  $value["auteur_id"] ) { 
+                  continue ;
+                }     ?>
+
   
                 <div class=" text-center rounded-2 border border-1 mb-4 p-4">
                 <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $value["email"] ) {    ?>
 
                    <div class=" d-flex  justify-content-end mb-3">
                     <div>
+                      <?php if ($value["is_Active"]  === 0) {      ?>
+                      
+                  <button disabled class="btn btn-square btn-outline-warning m-1"><i class="fa-solid fa-triangle-exclamation"></i></button>
+                  <?php } ?>
               <a class="btn btn-square btn-outline-success m-1" href="index.php?action=update_form_wikis&id_wiki=<?= $value["id_wiki"] ?>"><i class="fa-regular fa-pen-to-square"></i></a>
               <a class="btn btn-square btn-outline-primary m-1 modal-trigger" data-bs-toggle="modal" data-bs-name="<?= $value["title"] ?>"  data-bs-id="<?= $value["id_wiki"] ?>" href=""><i class="fa-solid fa-trash"></i></a>
                     </div>

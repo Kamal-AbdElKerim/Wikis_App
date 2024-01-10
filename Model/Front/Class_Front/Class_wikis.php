@@ -8,8 +8,9 @@ class Wikis {
     private $catg_name;
     private $created_at;
     private $auteur_id;
+    private $is_Active;
 
-    public function __construct($id_wiki, $title, $contenu,  $img,$catg_name, $created_at, $auteur_id) {
+    public function __construct($id_wiki, $title, $contenu,  $img,$catg_name, $created_at, $auteur_id ,$is_Active) {
         $this->id_wiki = $id_wiki;
         $this->title = $title;
         $this->contenu = $contenu;
@@ -17,6 +18,7 @@ class Wikis {
         $this->catg_name = $catg_name;
         $this->created_at = $created_at;
         $this->auteur_id = $auteur_id;
+        $this->is_Active = $is_Active;
     }
 
     // Getter methods for properties
@@ -49,8 +51,9 @@ class Wikis {
         return $this->auteur_id;
     }
 
-
-
-  
+    public function getIs_Active()
+    {
+        return $this->is_Active;
+    }
 }
 

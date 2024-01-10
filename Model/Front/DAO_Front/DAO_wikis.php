@@ -14,7 +14,7 @@ class DAO_model_wikis extends Database {
 
         $wikis = array(); 
         foreach ($result as $B) {
-            $wikis[] = new wikis($B["id_wiki"],$B["title"],$B["contenu"],$B["img"],$B["catg_name"],$B["created_at"],$B["auteur_id"]);
+            $wikis[] = new wikis($B["id_wiki"],$B["title"],$B["contenu"],$B["img"],$B["catg_name"],$B["created_at"],$B["auteur_id"],$B["is_Active"]);
         }
         return $wikis;
        
@@ -36,7 +36,7 @@ class DAO_model_wikis extends Database {
         
         $wikis = array(); 
        
-        $wikis[] = new wikis($result["id_wiki"],$result["title"],$result["contenu"],$result["img"],$result["catg_name"],$result["created_at"],$result["auteur_id"]);
+        $wikis[] = new wikis($result["id_wiki"],$result["title"],$result["contenu"],$result["img"],$result["catg_name"],$result["created_at"],$result["auteur_id"],$result["is_Active"]);
   
         return $wikis;
        
@@ -76,7 +76,7 @@ class DAO_model_wikis extends Database {
     
         $wikis = array(); 
         foreach ($result as $B) {
-            $wikis[] = new wikis($B["id_wiki"],$B["title"],$B["contenu"],$B["img"],$B["catg_name"],$B["created_at"],$B["auteur_id"]);
+            $wikis[] = new wikis($B["id_wiki"],$B["title"],$B["contenu"],$B["img"],$B["catg_name"],$B["created_at"],$B["auteur_id"],$B["is_Active"]);
         }
         return $wikis;
        
@@ -135,7 +135,8 @@ class DAO_model_wikis extends Database {
                 contenu = :contenu,
                 img = :img,
                 catg_name = :catg_name,
-                auteur_id = :auteur_id
+                auteur_id = :auteur_id,
+                is_Active = :is_Active
                 WHERE id_wiki = :id_wiki 
             ");
     
@@ -145,6 +146,7 @@ class DAO_model_wikis extends Database {
                 ":img" => $model_wiki->getImg(),
                 ":catg_name" => $model_wiki->getCatgName(),
                 ":auteur_id" => $model_wiki->getWikiId(),
+                ":is_Active" => $model_wiki->getIs_Active(),
                 ":id_wiki" => $model_wiki->getId_wiki()
             ));
     

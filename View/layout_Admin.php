@@ -66,7 +66,9 @@
                 <div class="navbar-nav w-100">
                 <a href="index.php?action=Page_Dashboard" class="nav-item nav-link <?php echo (isset($Dashboard)) ? "active" : ""; ?>"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="index.php?action=Page_Categories" class="nav-item nav-link <?php echo (isset($Categories)) ? "active" : ""; ?> "><i class="fa fa-tachometer-alt me-2"></i>Categories</a>
-                    <a href="index.php?action=Page_Tags" class="nav-item nav-link <?php echo (isset($Tags)) ? "active" : ""; ?> "><i class="fa fa-tachometer-alt me-2"></i>Tags</a>                </div>
+                    <a href="index.php?action=Page_Tags" class="nav-item nav-link <?php echo (isset($Tags)) ? "active" : ""; ?> "><i class="fa fa-tachometer-alt me-2"></i>Tags</a>  
+                    <a href="index.php?action=Page_wikis" class="nav-item nav-link <?php echo (isset($wiki)) ? "active" : ""; ?> "><i class="fa fa-tachometer-alt me-2"></i>wikis</a>  
+                              </div>
             </nav>
         </div>
         <!-- Sidebar End -->

@@ -56,15 +56,6 @@ class controller_auth_Admin
 
         }
     
-     
-
-
-
-
-        // Checking user authentication
-
-
-   
     }
 
     function SignOut()
@@ -74,4 +65,6 @@ class controller_auth_Admin
         session_destroy();
         header("Location: index.php?action=form_login");
     }
+
+
 }

@@ -43,6 +43,10 @@
 
         /* end Categories Action */
 
+        case "Page_wikis":
+            $wikis_Controller->all_wikis() ; 
+            break;
+
         /* Tags Action */
 
         case "Page_Tags":
@@ -105,6 +109,9 @@
         case "profile":
             $controller_auth_auteur->profile_auteur() ; 
             break;
+
+
+    
 
 
         default:
