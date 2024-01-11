@@ -80,10 +80,10 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
 
   const paginate_items = AllData.slice(start, end).map((elem) => {
     return `          <div class="row mt-5 mb-1">
-    <hr>
+    
       <div class="col-lg-5 mt-lg-0 mt-4">
         <div class="position-relative">
-          <img src="${elem.img}" alt="" class="radius-image "  width="430px" height="290px">
+          <img src="${elem.img}" alt="" class=" image_wiki" >
         </div>
       </div>
       <div class="col-lg-7 mb-lg-0 mb-md-5 mb-4 align-self">
@@ -100,11 +100,12 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
   });
 
   tableElement.innerHTML = paginate_items.join("");
+  // <a class="page-link " data-page="${elem + 1}" onclick="paginateFun(${elem + 1})" href="#goo">${elem + 1}</a>
 
 
   const buttons = [...Array(Math.ceil(AllData.length / limit)).keys()].map((elem) => {
     return `<li class="page-item">
-      <a class="page-link " data-page="${elem + 1}" onclick="paginateFun(${elem + 1})" href="#goo">${elem + 1}</a>
+      <button class="page-link " data-page="${elem + 1}" onclick="paginateFun(${elem + 1})">${elem + 1}</button>
     </li>`;
   });
 

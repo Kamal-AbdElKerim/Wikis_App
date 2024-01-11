@@ -69,20 +69,20 @@ $title = "Home" ;
 
     
     <div class="midd-w3 py-5" id="goo">
-    <div class=" container mt-3 ms-3 row  justify-content-between ">
+    <div class=" container mt-3  row  justify-content-around  ">
    
-      <div class="col-sm-5 ms-5 ps-5" >
+      <div class="col-sm-5  " >
         <input type="search" class="form-control" id="keywordInput" placeholder="search blog">
       </div>
   
   
-            <div class=" col-1 ">
+            <div class=" col-sm-1 ">
             <select  id="mySelect" class="form-select" aria-label="Default select example">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
-      </select>
+            </select>
             </div>            
        </div>
        
@@ -110,19 +110,19 @@ $title = "Home" ;
         <div class="col-md-4 col-6 stats_info counter_grid">
           <p class="counter"><?= $num_All_wikis ?> </p>
           <span class="plus">+</span><br>
-          <h3>Acres Of wikis</h3>
+          <h3>wikis</h3>
           <p class="para-counter">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo Semper.</p>
         </div>
         <div class="col-md-4 col-6 stats_info counter_grid mt-md-0 mt-0">
           <p class="counter"><?= $num_All_auteur ?></p>
           <span class="plus">+</span><br>
-          <h3>Acres Of auteur</h3>
+          <h3>auteur</h3>
           <p class="para-counter">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo Semper.</p>
         </div>
         <div class="col-md-4 col-6 stats_info counter_grid2 mt-md-0 mt-4">
           <p class="counter"><?= $num_AllCategories ?></p>
           <span class="plus">+</span><br>
-          <h3>Thousand Categories</h3>
+          <h3>Categories</h3>
           <p class="para-counter">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo Semper.</p>
         </div>
       </div>
@@ -166,10 +166,10 @@ $title = "Home" ;
               <div class="btn-group d-flex flex-wrap " role="group" aria-label="Basic checkbox toggle button group">
               <?php if (isset($AllTags)) {    ?>
                             <?php foreach ($AllTags as  $value) {      ?>
-              <div>
-              <input  type="checkbox" name="tags[]" value="<?= $value->gettag_id()?>" class="btn-check" id="flexCheckChecked_<?= $value->gettag_id()?>" autocomplete="off">
+              
+                <input  type="checkbox" name="tags[]" value="<?= $value->gettag_id()?>" class="btn-check" id="flexCheckChecked_<?= $value->gettag_id()?>" autocomplete="off">
                 <label class="btn btn-outline-primary ms-2" for="flexCheckChecked_<?= $value->gettag_id()?>"><?= $value->getTag_name()?></label>
-              </div>
+               
 
                 <?php }} ?>
               </div>
@@ -189,7 +189,7 @@ $title = "Home" ;
                   </div>
               </div>
           </div> 
-          <div class="form-buttonhny text-lg-right mt-5 pt-4">
+          <div class="form-buttonhny text-lg-right mt-5 pt-4 me-5">
             <button type="submit" name="submit" class="btn btn-style btn-primary">Add wiki</button>
         </div>  
        

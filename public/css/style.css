@@ -83,6 +83,7 @@
     transition: 0.5s;
 }
 
+
 @media (min-width: 992px) {
     .sidebar {
         margin-left: 0;
@@ -100,6 +101,7 @@
         width: 100%;
         margin-left: 0;
     }
+
 }
 
 @media (max-width: 991.98px) {
@@ -226,6 +228,7 @@
     .content .navbar .navbar-nav .nav-link {
         margin-left: 15px;
     }
+ 
 }
 
 

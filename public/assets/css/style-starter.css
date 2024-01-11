@@ -334,6 +334,10 @@ legend {
   color: inherit;
   white-space: normal;
 }
+.image_wiki{
+  width: 470px !important;
+  height: 290px !important;
+}
 
 @media (max-width: 1200px) {
   legend {
@@ -651,18 +655,31 @@ pre code {
   .container {
     max-width: 540px;
   }
+  .image_wiki{
+    width: 300px !important;
+    height: 250px !important;
+}
 }
 
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
   }
+  .image_wiki{
+    width: 300px !important;
+    height: 250px !important;
+}
+
 }
 
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
   }
+  .image_wiki{
+    width: 300px !important;
+    height: 250px !important;
+}
 }
 
 @media (min-width: 1200px) {
@@ -17396,6 +17413,10 @@ ul.twitter-feed a:hover {
 .footer-29-w3l p.twitter-title:hover {
   color: var(--primary-color);
 }
+.image_wiki{
+  width: 470px !important;
+  height: 290px !important;
+}
 
 @media screen and (max-width: 1190px) {
 
@@ -17424,6 +17445,10 @@ ul.twitter-feed a:hover {
   .footer-29-w3l .footer-border {
     padding-bottom: 2em;
   }
+  .image_wiki{
+    width: 300px !important;
+    height: 250px !important;
+}
 }
 
 @media screen and (max-width: 640px) {
@@ -17434,12 +17459,20 @@ ul.twitter-feed a:hover {
   .footer-29-w3l .footer-gd-16 li {
     margin: 5px 0;
   }
+  .image_wiki{
+    width: 300px !important;
+    height: 250px !important;
+}
 }
 
 @media screen and (max-width: 420px) {
   .footer-29-w3l {
     padding: 2em 0;
   }
+  .image_wiki{
+    width: 300px !important;
+    height: 250px !important;
+}
 }
 
 /*# sourceMappingURL=style-freedom.css.map */

@@ -84,7 +84,7 @@ $title = "more details" ;
                    </div>
                  <?php } ?>
                  <h2 class="text-start  mb-3"><?= $allwiki[0]["title"] ?></h2>         
-                  <img src="<?= $allwiki[0]["img"] ?>" class="img-fluid" alt="...">
+                  <img src="<?= $allwiki[0]["img"] ?>" class="img-fluid mb-5" alt="...">
                   <p class=" text-start   text-black ">
                   <?= $allwiki[0]["contenu"] ?>
                     </p>

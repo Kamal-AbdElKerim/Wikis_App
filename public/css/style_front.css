@@ -82,6 +82,10 @@
     background: var(--dark);
     transition: 0.5s;
 }
+.image_wiki{
+    width: 470px !important;
+    height: 290px !important;
+}
 
 @media (min-width: 992px) {
     .sidebar {
@@ -226,6 +230,10 @@
 @media (max-width: 575.98px) {
     .content .navbar .navbar-nav .nav-link {
         margin-left: 15px;
+    }
+    .image_wiki{
+        width: 300px !important;
+        height: 250px !important;
     }
 }
 
