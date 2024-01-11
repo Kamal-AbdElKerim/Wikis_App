@@ -62,7 +62,7 @@ class DAO_model_wikis extends Database {
         $consulta->execute();
         $result = $consulta->fetch();
 
-    
+        
         return $result;
        
 

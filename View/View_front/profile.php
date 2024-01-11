@@ -89,7 +89,7 @@ $title = "more details" ;
                 }     ?>
 
   
-                <div class=" text-center rounded-2 border border-1 mb-4 p-4">
+                <div class=" text-center rounded-2 border border-1  p-4">
                 <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $value["email"] ) {    ?>
 
                    <div class=" d-flex  justify-content-end mb-3">
@@ -103,7 +103,7 @@ $title = "more details" ;
                     </div>
                    </div>
                  <?php } ?>
-                 <h2 class="text-start mt-5 mb-3"><?= $value["title"] ?></h2>
+                 <h2 class="text-start  mb-3"><?= $value["title"] ?></h2>
 
                   <img src="<?= $value["img"] ?>" class="img-fluid" alt="...">
                   <h6 class="title-subhny text-end mb-3">catg_name <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> <?= $value["catg_name"] ?></a></h6>

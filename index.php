@@ -7,6 +7,7 @@
   include_once "Controller\Auth_controller\controller_auth_auteur.php" ;
   include_once "Controller\Controller_Front.php" ;
   include_once "Controller\wikis_Controller\wikis_Controller.php" ;
+  include_once "Controller\Dashboard_admin\Controller_Dashboard.php" ;
 
 
 
@@ -17,11 +18,16 @@
    $controller_auth_auteur = new controller_auth_auteur() ; 
    $Controller_Front = new Controller_Front() ; 
    $wikis_Controller = new wikis_Controller() ; 
+   $controller_Dashboard = new controller_Dashboard() ; 
 
       if (isset($_GET["action"])) {
        $action = $_GET["action"] ; 
  
        switch ($action) {
+
+        case "Page_Dashboard":
+            $controller_Dashboard->Dashboard() ; 
+            break;
     
         /* Categories Action */
 
