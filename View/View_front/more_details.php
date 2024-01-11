@@ -76,33 +76,34 @@ $title = "more details" ;
                 <div class=" text-center rounded-2 border border-1  p-4">
                 <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $allwiki[0]["email"] ) {    ?>
 
-                   <div class=" d-flex  justify-content-end mb-3">
+                   <div class=" d-flex  justify-content-end ">
                     <div>
               <a class="btn btn-square btn-outline-success m-1" href="index.php?action=update_form_wikis&id_wiki=<?= $allwiki[0]["id_wiki"] ?>"><i class="fa-regular fa-pen-to-square"></i></a>
               <a class="btn btn-square btn-outline-primary m-1 modal-trigger" data-bs-toggle="modal" data-bs-name="<?= $allwiki[0]["title"] ?>"  data-bs-id="<?= $allwiki[0]["id_wiki"] ?>" href=""><i class="fa-solid fa-trash"></i></a>
                     </div>
                    </div>
                  <?php } ?>
-                                
+                 <h2 class="text-start  mb-3"><?= $allwiki[0]["title"] ?></h2>         
                   <img src="<?= $allwiki[0]["img"] ?>" class="img-fluid" alt="...">
-                  <h2 class="text-start mt-5 mb-3"><?= $allwiki[0]["title"] ?></h2>
                   <p class=" text-start   text-black ">
                   <?= $allwiki[0]["contenu"] ?>
                     </p>
                 
             </div>
             </div>
-            <div class="col-lg-2  ">
-              <div class="text-center border-secondary  mt-5">
-            <div class="  rounded p-4 ">
+
+
+            <div class="col-lg-2 ">
+              <div class="cardd border rounded-2 border-secondary ">
+
+                <div class=" text-center mt-3">
+               
                         <h4 class=" text-center ">Categories</h4><hr>
                         <button disabled type="button" class="btn  btn-success  m-1"
                         style="font-size: 15px;">
                         <?= $allwiki[0]["catg_name"] ?>
                         </button>
-                 
-                    </div>
-                    <div class="  rounded p-3">
+                        <div class="  rounded p-3">
                         <h3>tags</h3><hr>
                         <?php foreach ($allwiki as  $value) {   ?>
 
@@ -111,11 +112,14 @@ $title = "more details" ;
                         <?= $value["tag_name"] ?>
                         </button>
                     <?php } ?>
+                  
+                 
                     </div>
-                    </div>
-
-   
-          </div>
+                  
+                </div>
+                 
+               </div>
+            </div>
         </div>
       </div>
     </section>
@@ -126,7 +130,7 @@ $title = "more details" ;
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">delete Catégories</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Wiki</h1>
       </div>
       <div class="modal-body">
         
@@ -153,9 +157,9 @@ $title = "more details" ;
             const body = modal.querySelector('.modal-body');
             const modalTrigger = modal.querySelector('.modal-footer');
             // Use the fetched 'id' to perform further actions or data retrieval
-            modalTrigger.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            modalTrigger.innerHTML = `<button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
             
-            <a class="btn btn-success mb-2 ms-2" href="index.php?action=deleteWiki&id_wiki=${id}">delete</a>
+            <a class="btn btn-danger " href="index.php?action=deleteWiki&id_wiki=${id}">delete</a>
 `;
             body.innerHTML = `Do you want to delete : ${nom}`;
             // Set the 'data-bs-target' attribute of the modal dynamically
