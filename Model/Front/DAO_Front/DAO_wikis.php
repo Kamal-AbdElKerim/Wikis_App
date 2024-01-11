@@ -69,7 +69,7 @@ class DAO_model_wikis extends Database {
     }
     public function TroiLastWikis(){
 
-        $consulta = $this->getConnection()->prepare("SELECT * FROM  wikis order by created_at DESC LIMIT 3" );
+        $consulta = $this->getConnection()->prepare("SELECT * FROM  wikis w WHERE w.is_Active = 1  order by w.created_at DESC LIMIT 3" );
         $consulta->execute();
         $result = $consulta->fetchAll();
 

@@ -47,7 +47,7 @@ class controller_Dashboard {
         $Num_All_auteur = count($All_auteur);
 
         // echo "<pre>";
-        // print_r($All_wikis);
+        // print_r($All_auteur);
         // echo "</pre>";
       
       

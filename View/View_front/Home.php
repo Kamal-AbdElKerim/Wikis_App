@@ -68,10 +68,10 @@ $title = "Home" ;
     <section class="w3l-index3" id="about">
 
     
-    <div class="midd-w3 py-5">
+    <div class="midd-w3 py-5" id="goo">
     <div class=" container mt-3 ms-3 row  justify-content-between ">
    
-      <div class="col-sm-5 ms-5 ps-5">
+      <div class="col-sm-5 ms-5 ps-5" >
         <input type="search" class="form-control" id="keywordInput" placeholder="search blog">
       </div>
   

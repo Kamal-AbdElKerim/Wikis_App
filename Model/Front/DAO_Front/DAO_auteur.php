@@ -15,7 +15,7 @@ class model_auteur extends Database {
 
         $auteur = array(); 
         foreach ($result as $B) {
-            $auteur[] = new auteur($B["auteur_id"],$B["email"],$B["auteur_id"],$B["password"],$B["created_at"]);
+            $auteur[] = new auteur($B["auteur_id"],$B["email"],$B["name"],$B["password"],$B["created_at"]);
         }
         return $auteur;
        
@@ -47,7 +47,7 @@ class model_auteur extends Database {
         
         $auteur = array(); 
        
-        $auteur[] = new auteur($result["auteur_id"],$result["email"],$result["auteur_id"],$result["password"],$result["created_at"]);
+        $auteur[] = new auteur($result["auteur_id"],$result["email"],$result["name"],$result["password"],$result["created_at"]);
   
         return $auteur;
        

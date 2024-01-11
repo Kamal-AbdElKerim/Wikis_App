@@ -32,9 +32,7 @@ $title = "more details" ;
                   <?php if (isset($_SESSION["auteur"])) {
                    $SESSION_auteur = $_SESSION["auteur"] ;
                   }
-                  if (isset($_SESSION["auteur_id"])) {
-                   $SESSION_auteur_id = $_SESSION["auteur_id"] ;
-                  }
+              
                   if (isset($SESSION_auteur) && isset($profile[0]["email"])) {
                     
                  
@@ -83,9 +81,17 @@ $title = "more details" ;
         
 
             <div class="col-lg-7  mt-lg-0 mt-5  align-self">
-              <?php foreach ($profile as  $value) {   ?>
-                <?php if ($value["is_Active"]  === 0 &&  $SESSION_auteur_id !==  $value["auteur_id"] ) { 
-                  continue ;
+              
+              <?php    
+              
+              foreach ($profile as  $value) {   ?>
+                <?php if (isset($_SESSION["auteur_id"])) {
+                    $SESSION_auteur_id = $_SESSION["auteur_id"] ;
+                   }
+                
+                
+                   if ($value["is_Active"] === 0 && (isset($SESSION_auteur_id) ? $SESSION_auteur_id !== $value["auteur_id"] : true)) { 
+                    continue ;
                 }     ?>
 
   

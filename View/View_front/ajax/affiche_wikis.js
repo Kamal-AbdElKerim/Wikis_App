@@ -104,7 +104,7 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
 
   const buttons = [...Array(Math.ceil(AllData.length / limit)).keys()].map((elem) => {
     return `<li class="page-item">
-      <button class="page-link " data-page="${elem + 1}" onclick="paginateFun(${elem + 1})">${elem + 1}</button>
+      <a class="page-link " data-page="${elem + 1}" onclick="paginateFun(${elem + 1})" href="#goo">${elem + 1}</a>
     </li>`;
   });
 

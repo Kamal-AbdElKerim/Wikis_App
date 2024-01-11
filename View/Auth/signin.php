@@ -24,7 +24,7 @@ $title = "signin" ;
                         <div class="form-floating mb-4">
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                             <label for="floatingPassword">Password</label>
-                            <span style="color: red;"><?php if(isset($_GET['passwordError'])) echo $_GET['passwordError']; ?></span><br>
+                            <span style="color: red;"><?php if(isset($_GET['password'])) echo $_GET['passwordError']; ?></span><br>
                             <span id="passwordError" style="color: red;"></span><br>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">

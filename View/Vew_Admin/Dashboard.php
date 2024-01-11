@@ -97,8 +97,7 @@ $Dashboard = "Dashboard" ;
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
-                        <a href="">Show All</a>
+                        <h6 class="mb-0">Auteur</h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -112,14 +111,17 @@ $Dashboard = "Dashboard" ;
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($All_auteur as $value) {    ?>
+                                  
+                              
                                 <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
+                                    <td><?= $value->getCreatedAt() ?></td>
+                                    <td><?= $value->getName() ?></td>
+                                    <td><?= $value->getEmail() ?></td>
                                   
                                     <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
                                 </tr>
-                         
+                          <?php } ?>
                             </tbody>
                         </table>
                     </div>

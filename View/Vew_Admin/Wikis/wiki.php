@@ -54,6 +54,7 @@ $wiki = "wiki" ;
    
                                    <?php } ?>
                             </tbody>
+                          
                         </table>
                     </div>
                 </div>
