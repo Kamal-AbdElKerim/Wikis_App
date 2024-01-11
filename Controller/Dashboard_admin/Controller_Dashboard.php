@@ -5,31 +5,25 @@ include "Model\Dashboard_Admin\model_Dashbored.php" ;
 class controller_Dashboard {
 
 
-
     function dateDifference($date) {
         $currentDate = new DateTime();
-    
         $yourDate = new DateTime($date);
     
         $difference = $currentDate->getTimestamp() - $yourDate->getTimestamp();
     
-        $daysDifference = floor($difference / (60 * 60 * 24));
-        $hoursDifference = floor(($difference % (60 * 60 * 24)) / (60 * 60));
-        $minutesDifference = floor(($difference % (60 * 60)) / 60);
-        $secondsDifference = $difference % 60;
-    
-        if ($difference < 1000) {
+        if ($difference < 60) {
             return "Just now";
-        } elseif ($daysDifference > 0) {
-            return $daysDifference . " days ago";
-        } elseif ($hoursDifference > 0) {
-            return $hoursDifference . " hours ago";
-        } elseif ($minutesDifference > 0) {
-            return $minutesDifference . " minutes ago";
+        } elseif ($difference < 3600) {
+            return floor($difference / 60) . " minutes ago";
+        } elseif ($difference < 86400) {
+            return floor($difference / 3600) . " hours ago";
+        } elseif ($difference < 2592000) {
+            return floor($difference / 86400) . " days ago";
         } else {
             return "Just now";
         }
     }
+    
     
 
     
@@ -46,12 +40,21 @@ class controller_Dashboard {
 
         $model_Dashbored = new model_Dashbored() ; 
         $All_wikis =  $model_Dashbored->getAllwikis();
+        $Num_All_wikis = count($All_wikis);
 
+        $model_auteur = new model_auteur() ; 
+        $All_auteur =  $model_auteur->getAllauteur();
+        $Num_All_auteur = count($All_auteur);
 
+        // echo "<pre>";
+        // print_r($All_wikis);
+        // echo "</pre>";
       
-     
+      
+       
+       
 
-        include "View\Vew_Admin\Dashboard.php" ; 
+       include "View\Vew_Admin\Dashboard.php" ; 
       
       }
     

@@ -1,3 +1,8 @@
+<?php
+if (isset( $_SESSION["Admin"])) { ?>
+
+
+
 <?php  ob_start(); 
 $title = "Dashboard" ; 
 $Dashboard = "Dashboard" ; 
@@ -7,40 +12,46 @@ $Dashboard = "Dashboard" ;
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
          
-                    <div class="col-sm-6 col-xl-3">
+                    <div class="col-sm-6 col-xl-5">
                         <div class="bg-secondary mb-4 rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Wikis</p>
-                                <h6 class="mb-0">$1234</h6>
                             </div>
+                            <h6 class="mb-0"><?= $Num_All_wikis?></h6>
+
                         </div>
                 
                         <div class="bg-secondary mb-4 rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Categories</p>
-                                <h6 class="mb-0">$1234</h6>
                             </div>
+                            <h6 class="mb-0"><?= $Num_AllCategories?></h6>
+
                         </div>
                 
                         <div class="bg-secondary mb-4 rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
                                    <p class="mb-2">Tags</p>
-                                <h6 class="mb-0">$1234</h6>
                             </div>
+                            <h6 class="mb-0"><?= $Num_AllTags?></h6>
+
                         </div>
                    
                         <div class="bg-secondary mb-4  rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-pie fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">auteur</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Auteur</p>
                             </div>
+                            <h6 class="mb-0"><?= $Num_All_auteur?></h6>
+
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3 ">
+                    <div class="col-sm-6 col-xl-2 ">
+                        </div>
+                    <div class="col-sm-6 col-xl-5 ">
                         <div class="h-100 bg-secondary rounded p-4 overflow-auto " style="max-height: 470px;">
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <h6 class="mb-3">Notification</h6>
@@ -48,7 +59,13 @@ $Dashboard = "Dashboard" ;
 
                             <?php foreach ($All_wikis as  $value) {   ?>
                               
-                           <?php         $date_wiki = $this->dateDifference($value["created_at"]) ;
+                           <?php      
+                           
+                           
+                           
+                           
+                           $date_wiki = $this->dateDifference( $value["created_at"]) ;
+                           
  ?>
 
                         <a class="icon-link icon-link-hover"  href="index.php?action=moredetails&id_wiki=<?= $value["id_wiki"] ?>">
@@ -117,3 +134,8 @@ $Dashboard = "Dashboard" ;
     
     <?php $contant =  ob_get_clean();
     include_once "View\layout_Admin.php" ; 
+
+}else {
+    header("Location: index.php?action=form_login");
+
+}
