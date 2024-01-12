@@ -16,23 +16,23 @@ $title = "Sign Up" ;
                         </div>
                         <form id="registrationForm" action="index.php?action=registre" method="post" onsubmit="return validateForm()">
                         <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="floatingText" placeholder="jhondoe" name="name" value="<?= isset( $_SESSION["name"]) ?  $_SESSION["name"] : '' ?>">
+                        <input type="text" class="form-control mb-2" id="floatingText" placeholder="jhondoe" name="name" value="<?= isset( $_SESSION["name"]) ?  $_SESSION["name"] : '' ?>" onkeyup="validateName()">
                             <label for="floatingText">Username</label>
-                            <span style="color: red;"><?php if(isset($_GET['name'])) echo $_GET['name']; ?></span><br>
-                            <span id="nameError" style="color: red;"></span><br>
+                            <span style="color: red;"><?php if(isset($_GET['name'])) echo $_GET['name']; ?></span>
+                            <span id="nameError" class="error" style="color: red;"></span>
 
 
                         </div>
                         <div class="form-floating mb-2">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" value="<?= isset( $_SESSION["email"]) ?  $_SESSION["email"] : '' ?>">
+                            <input type="email" class="form-control mb-2" id="floatingInput" placeholder="name@example.com" name="email" value="<?= isset( $_SESSION["email"]) ?  $_SESSION["email"] : '' ?>" onkeyup="validateEmail()">
                             <label for="floatingInput">Email address</label>
-                            <span style="color: red;"><?php if(isset($_GET['email'])) echo $_GET['email']; ?></span><br>
-                            <span id="emailError" style="color: red;"></span><br>
+                            <span style="color: red;"><?php if(isset($_GET['email'])) echo $_GET['email']; ?></span>
+                            <span id="emailError" class="error" style="color: red;"></span>
 
 
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" >
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" onkeyup="validatePassword()">
                             <label for="floatingPassword">Password</label>
                             <span style="color: red;"><?php if(isset($_GET['password'])) echo $_GET['password']; ?></span><br>
                             <span id="passwordError" style="color: red;"></span><br>
@@ -61,45 +61,44 @@ $title = "Sign Up" ;
         </div>
         <!-- Sign Up End -->
 
+
         <script>
-function validateForm() {
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    
-    var nameError = document.getElementById('nameError');
-    var emailError = document.getElementById('emailError');
+        function validateName() {
+            var name = document.getElementById('floatingText').value;
+            var nameError = document.getElementById('nameError');
+
+            if (name.trim() === '') {
+                nameError.innerText = 'Name is required';
+            } else {
+                nameError.innerText = '';
+            }
+        }
+
+        function validateEmail() {
+            var email = document.getElementById('floatingInput').value;
+            var emailError = document.getElementById('emailError');
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(email)) {
+                emailError.innerText = 'Invalid email address';
+            } else {
+                emailError.innerText = '';
+            }
+        }
+        function validatePassword() {
+    var password = document.getElementById('floatingPassword').value;
     var passwordError = document.getElementById('passwordError');
-    
-    var nameRegex = /^[a-zA-Z-' ]*$/;
-    var minLength = 8; // Change as needed
-    
-    // Name Validation
-    if (name === '' || !name.match(nameRegex)) {
-        nameError.textContent = "Please enter a valid name.";
-        return false;
+
+
+    if (password.length < 8) {
+        passwordError.innerText = 'Password must be at least 8 characters';
     } else {
-        nameError.textContent = "";
+        passwordError.innerText = '';
     }
-    
-    // Email Validation
-    if (email === '' || !/^\S+@\S+\.\S+$/.test(email)) {
-        emailError.textContent = "Please enter a valid email address.";
-        return false;
-    } else {
-        emailError.textContent = "";
-    }
-    
-    // Password Validation
-    if (password === '' || password.length < minLength) {
-        passwordError.textContent = "Password should be at least " + minLength + " characters long.";
-        return false;
-    } else {
-        passwordError.textContent = "";
-    }
-    
-    return true; // Form submission allowed if all validations pass
 }
-</script>
+
+
+    
+    </script>
         <?php $contant =  ob_get_clean();
     include_once "View\layout_front.php" ; 
