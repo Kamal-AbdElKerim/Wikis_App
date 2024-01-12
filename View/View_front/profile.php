@@ -95,7 +95,7 @@ $title = "more details" ;
                 }     ?>
 
   
-                <div class=" text-center rounded-2 border border-1  p-4">
+                <div class=" text-center rounded-2 border border-1  p-4 mb-5">
                 <?php if (isset($_SESSION["auteur_id"]) && $_SESSION["auteur"] ===  $value["email"] ) {    ?>
 
                    <div class=" d-flex  justify-content-end mb-3">

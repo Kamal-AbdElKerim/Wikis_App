@@ -83,7 +83,7 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
     
       <div class="col-lg-5 mt-lg-0 mt-4">
         <div class="position-relative">
-          <img src="${elem.img}" alt="" class=" image_wiki" >
+          <img src="${elem.img}" alt=""  width="400px" height="290px" >
         </div>
       </div>
       <div class="col-lg-7 mb-lg-0 mb-md-5 mb-4 align-self">

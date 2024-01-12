@@ -25,9 +25,21 @@ class wikis_Controller {
     function add_wiki()  {
      extract($_POST) ;
    
-    //  print_r($_FILES['image']);
+     function sanitizeInput($input) {
+        // Remove HTML and script tags
+        $cleanedInput = strip_tags($input);
+    
+        // Remove leading and trailing whitespaces
+        $cleanedInput = trim($cleanedInput);
+    
+        // Convert special characters to HTML entities
+        $sanitizedInput = htmlspecialchars($cleanedInput, ENT_QUOTES, 'UTF-8');
+    
+        return $sanitizedInput;
+    }
+    
 
-     if (isset($_POST['submit']) && isset($_POST["Title"])&& isset($_POST["Contenu"])&& isset($_POST["Categories"])&& isset($_POST["tags"])) {
+     if (isset($_POST['submit']) && !empty($_POST["Title"])&& !empty($_POST["Contenu"])&& !empty($_POST["Categories"])&& !empty($_POST["tags"])) {
               // Function to generate a unique filename
               function generateUniqueFilename( $filename) {
                 $timestamp = time(); // Get current timestamp
@@ -64,7 +76,7 @@ class wikis_Controller {
   
         $DAO_model_wikis = new DAO_model_wikis() ; 
 
-        $model_wiki = new Wikis(null,$Title , $Contenu ,$uploadedFile,$Categories,null,$_SESSION["auteur_id"],1);
+        $model_wiki = new Wikis(null, sanitizeInput($Title) ,  sanitizeInput($Contenu)  , $uploadedFile, $Categories,null,$_SESSION["auteur_id"],1);
 
          print_r($model_wiki);
 
@@ -115,7 +127,19 @@ class wikis_Controller {
     function update_Wikis()  {
         extract($_POST) ;
         // print_r($_POST);
-       
+        function sanitizeInput1($input) {
+            // Remove HTML and script tags
+            $cleanedInput = strip_tags($input);
+        
+            // Remove leading and trailing whitespaces
+            $cleanedInput = trim($cleanedInput);
+        
+            // Convert special characters to HTML entities
+            $sanitizedInput = htmlspecialchars($cleanedInput, ENT_QUOTES, 'UTF-8');
+        
+            return $sanitizedInput;
+        }
+        
 
         if (isset($_POST['submit']) && !empty($Title) && isset($_POST["Contenu"])&& isset($_POST["Categories"])&& isset($_POST["tags"])) {
             // Function to generate a unique filename
@@ -159,15 +183,22 @@ class wikis_Controller {
 
         $uploadedFile = $allwiki[0]['img'];
      
-        // print_r($uploadedFile);
-        // echo "<pre>";
-        // print_r($allwiki);
-        // echo "</pre>";
       } 
 
       $DAO_model_wikis = new DAO_model_wikis() ; 
 
-      $model_wiki = new Wikis($id_wiki,$Title , $Contenu ,$uploadedFile,$Categories,null,$_SESSION["auteur_id"],1);
+      $wiki =   $DAO_model_wikis->getAllwikisByID($id_wiki); 
+
+      if ($wiki[0]["is_Active"] === 0) {
+        $model_wiki = new Wikis($id_wiki,sanitizeInput1($Title) , sanitizeInput1($Contenu) ,$uploadedFile,$Categories,null,$_SESSION["auteur_id"],0);
+
+      }else {
+        $model_wiki = new Wikis($id_wiki,sanitizeInput1($Title) , sanitizeInput1($Contenu) ,$uploadedFile,$Categories,null,$_SESSION["auteur_id"],1);
+
+      }
+
+
+
 
     //    print_r($model_wiki);
 
