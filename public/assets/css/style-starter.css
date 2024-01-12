@@ -15115,7 +15115,7 @@ nav ul li a:hover {
 
 .w3l-main-slider .banner-view {
   min-height: calc(100vh - 20px);
-  background: url(../images/bg.jpg) no-repeat center;
+  background: url(../../img/10-sharing-book-cover-background-1-65949431944a4537466881-ezgif.com-webp-to-jpg-converter.jpg) no-repeat center;
   -ms-background-size: cover;
   background-size: cover;
   z-index: 0;
@@ -15126,16 +15126,16 @@ nav ul li a:hover {
 }
 
 .w3l-main-slider .banner-view.banner-top1 {
-  background: url(../images/bg1.jpg) no-repeat center;
+  background: url(../../img/10-sharing-book-cover-background-1-65949431944a4537466881-ezgif.com-webp-to-jpg-converter.jpg) no-repeat center;
 }
 
 .w3l-main-slider .banner-view.banner-top2 {
   background: url(../images/bg2.jpg) no-repeat center;
 }
 
-.w3l-main-slider .banner-view.banner-top3 {
+/* .w3l-main-slider .banner-view.banner-top3 {
   background: url(../images/bg3.jpg) no-repeat center;
-}
+} */
 
 .w3l-main-slider .banner-view:before {
   content: "";
