@@ -41,9 +41,9 @@ $wiki = "wiki" ;
                                        <td><?= $value->getCatgName() ?></td>
                                        <td >
                                        <button onclick="NoneRequest(<?= $value->getId_wiki() ?>, this)" class="btn btn-<?php if ($value->getIs_Active() === 0) {
-                                            echo "primary" ;
+                                            echo "success" ;
                                             }else {
-                                            echo "danger" ;
+                                            echo "info" ;
                                             } ?> mb-2 ms-2" type="button" ><div id="result_<?= $value->getId_wiki() ?>"><?php if ($value->getIs_Active() === 1) {
                                             echo "None" ;
                                             }else {

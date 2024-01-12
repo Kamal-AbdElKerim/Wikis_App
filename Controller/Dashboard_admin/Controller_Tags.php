@@ -22,8 +22,17 @@ class controller_Tags {
              if (!empty($tag_name)  ) {
             
                 $model_Tags = new model_Tags() ; 
-                $model_Tags->InsertTags($tag_name) ;
-                header("Location: index.php?action=Page_Tags");
+                $status =    $model_Tags->InsertTags($tag_name) ;
+
+                if ($status === false) {
+                  header("Location: index.php?action=Page_Tags&error=tag_name already exists&tag_name=$name");
+
+                }else {
+
+                  header("Location: index.php?action=Page_Tags");
+
+  
+                }
 
               
              }else {

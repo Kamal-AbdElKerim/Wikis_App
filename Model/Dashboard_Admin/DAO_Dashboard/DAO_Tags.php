@@ -39,6 +39,29 @@ class model_Tags extends Database {
         return $Tags;
        
     }
+
+    public function getBytag_WikiTags($tag_name){
+        $consulta = $this->getConnection()->prepare("SELECT * 
+                                                FROM tags  WHERE tag_name = :tag_name");
+        $consulta->execute(array(
+            "tag_name" => $tag_name
+        ));
+       
+        $result = $consulta->fetch();
+
+        if (empty($result)) {
+            return false;
+
+        }else {
+
+        
+        $Tags = array(); 
+       
+        $Tags[] = new Tags($result["tag_id"],$result["tag_name"]);
+  
+        return $Tags; }
+       
+    }
     
 
     
@@ -59,7 +82,11 @@ class model_Tags extends Database {
 
 
     public function InsertTags( $tag_name){ 
-        // Prepare the SQL statement with placeholders
+       
+        $data =$this->getBytag_WikiTags($tag_name);
+
+        if ($data === false) {
+
         $consulta = $this->getConnection()->prepare("INSERT INTO Tags ( `tag_name`)
                                                     VALUES ( :tag_name)");
     
@@ -69,6 +96,10 @@ class model_Tags extends Database {
     
         // Execute the query
         $result = $consulta->execute();
+
+    }else {
+        return false ;
+     }
     
     }
     

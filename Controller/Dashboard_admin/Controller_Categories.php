@@ -22,8 +22,15 @@ class controller_Categories {
              if (!empty($name) && !empty($Bio) ) {
             
                 $model_Categories = new model_Categories() ; 
-                $model_Categories->InsertCategories($name, $Bio) ;
+              $status =  $model_Categories->InsertCategories($name, $Bio) ;
+
+              if ($status === false) {
+                header("Location: index.php?action=Page_Categories&error=name already exists&name=$name&Bio=$Bio");
+
+              }else {
                 header("Location: index.php?action=Page_Categories");
+
+              }
 
               
              }else {

@@ -6,7 +6,7 @@ class DAO_model_wikis extends Database {
     public function getAllwikis(){
         if (isset($_GET["keyword"]) ) {
             $keyword = $_GET["keyword"];
-            $consulta = $this->getConnection()->prepare("SELECT *
+            $consulta = $this->getConnection()->prepare("SELECT w.id_wiki ,w.title ,w.contenu ,w.img ,w.catg_name , w.created_at , a.name,t.tag_name ,a.auteur_id
             FROM wikis w
             JOIN auteur a ON w.auteur_id = a.auteur_id AND w.is_Active = 1
             LEFT JOIN (
@@ -26,9 +26,9 @@ class DAO_model_wikis extends Database {
             $consulta->execute();
             $result = $consulta->fetchAll();
         } else {
-            $consulta = $this->getConnection()->prepare("SELECT * FROM wikis w 
-                JOIN auteur a ON w.auteur_id = a.auteur_id 
-                ORDER BY w.created_at DESC");
+            $consulta = $this->getConnection()->prepare("SELECT w.id_wiki ,w.title ,w.contenu ,w.img ,w.catg_name , w.created_at , a.name ,a.auteur_id FROM wikis w 
+            JOIN auteur a ON w.auteur_id = a.auteur_id 
+            ORDER BY w.created_at DESC");
             $consulta->execute();
             $result = $consulta->fetchAll();
         }

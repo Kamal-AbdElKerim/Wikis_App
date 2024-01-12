@@ -46,12 +46,19 @@ class model_Categories extends Database {
        
         $result = $consulta->fetch();
 
-        
+        if (empty($result)) {
+            return false;
+
+        }else {
+              
         $Categories = array(); 
        
         $Categories[] = new Categories($result["name"],$result["Bio"],$result["created_at"]);
   
         return $Categories;
+        }
+
+     
        
     }
     
@@ -74,6 +81,12 @@ class model_Categories extends Database {
 
 
     public function InsertCategories($name, $Bio){ 
+
+        $data =$this->getByNameCategories($name);
+
+
+        if ($data === false) {
+
         // Prepare the SQL statement with placeholders
         $consulta = $this->getConnection()->prepare("INSERT INTO categories (`name`, `Bio`)
                                                     VALUES (:name, :Bio)");
@@ -82,9 +95,12 @@ class model_Categories extends Database {
         $consulta->bindParam(':name', $name);
         $consulta->bindParam(':Bio', $Bio);
       
-    
+
         // Execute the query
-        $consulta->execute();
+        $consulta->execute();   
+     }else {
+           return false ;
+        }
     
     }
     

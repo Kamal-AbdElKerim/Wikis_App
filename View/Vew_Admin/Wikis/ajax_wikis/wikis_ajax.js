@@ -15,10 +15,10 @@ function NoneRequest(id, button) {
           
             buttonText.innerHTML = 'Block';
             button.classList.remove('btn-info');
-            button.classList.add('btn-secondary');
+            button.classList.add('btn-success');
           } else {
             buttonText.innerHTML = 'None';
-            button.classList.remove('btn-secondary');
+            button.classList.remove('btn-success');
             button.classList.add('btn-info');
           }
        

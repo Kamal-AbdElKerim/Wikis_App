@@ -1,5 +1,27 @@
 
+function date(date) {
+  let currentDate = new Date();
 
+let yourDate = new Date(date);
+let difference =  currentDate.getTime() - yourDate.getTime() ;
+
+let daysDifference = Math.floor(difference / (1000 * 60 * 60 * 24));
+let hoursDifference = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+let minutesDifference = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+let secondsDifference = Math.floor((difference % (1000 * 60)) / 1000);
+
+if (difference < 1000) {
+    return "Just now";
+  } else if (daysDifference > 0) {
+    return daysDifference + " days ago";
+  } else if (hoursDifference > 0) {
+    return hoursDifference + " hours ago";
+  } else if (minutesDifference > 0) {
+    return minutesDifference + " minutes ago";
+  } else {
+    return " Just now";
+  }
+}
 
 let filteredProducts = []; 
 
@@ -91,6 +113,7 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
         <h3 class="title-left mx-0">${elem.title}</h3>
         <h6 class="title-subhny">Categorie <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> ${elem.catg_name}</a></h6>
         <h6 class="title-subhny">Tags <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> ${elem.tag_name}</a></h6>
+        <p class="title-subhny"> ${ date(elem.created_at)}</p>
         <p class="mt-md-4 mt-3 max-lines-3">${elem.contenu}.</p>
         <a href="index.php?action=moredetails&id_wiki=${elem.id_wiki}"  class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" > Read More</a>
       </div>
