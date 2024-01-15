@@ -6,7 +6,7 @@ $title = "update wiki" ;
 
 <div class="container pt-4 ">
                 <div class="row  rounded   mx-0">
-                    <h1 class="text-start  pt-5 ps-5 ">Add wiki</h1>
+                    <h1 class="text-start  pt-5 ps-5 ">Update wiki</h1>
 
                     <?php if (isset($_SESSION["auteur"])) {    ?>
                      

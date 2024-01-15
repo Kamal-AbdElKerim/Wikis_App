@@ -113,7 +113,7 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
         <h3 class="title-left mx-0">${elem.title}</h3>
         <h6 class="title-subhny">Categorie <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> ${elem.catg_name}</a></h6>
         <h6 class="title-subhny">Tags <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href=""> ${elem.tag_name}</a></h6>
-        <p class="title-subhny"> ${ date(elem.created_at)}</p>
+        <p class="title"> ${ date(elem.created_at)}</p>
         <p class="mt-md-4 mt-3 max-lines-3">${elem.contenu}.</p>
         <a href="index.php?action=moredetails&id_wiki=${elem.id_wiki}"  class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" > Read More</a>
       </div>
@@ -147,7 +147,7 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
 
 function fetchData(keyword) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', "View/View_front/ajax/affiche_wiki.php?keyword=" + keyword, true);
+  xhr.open('get', "View/View_front/ajax/affiche_wiki.php?keyword=" + keyword, true);
 
   xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300) {

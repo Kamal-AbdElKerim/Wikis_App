@@ -99,18 +99,23 @@ $title = "more details" ;
                 <div class=" text-center mt-3">
                
                         <h4 class=" text-center ">Categories</h4><hr>
-                        <button disabled type="button" class="btn  btn-success  m-1"
+                        <!-- <button disabled type="button" class="btn  btn-success  m-1"
                         style="font-size: 15px;">
-                        <?= $allwiki[0]["catg_name"] ?>
-                        </button>
+                       
+                        </button> -->
+                        <span class="badge  text-bg-success "> <?= $allwiki[0]["catg_name"] ?></span>
+
                         <div class="  rounded p-3">
                         <h3>tags</h3><hr>
                         <?php foreach ($allwiki as  $value) {   ?>
 
-                        <button disabled type="button" class="btn  btn-primary   m-1 mb-2"
+                          <span class="badge text-bg-primary"> <?= $value["tag_name"] ?></span>
+
+
+                        <!-- <button disabled type="button" class="btn  btn-primary   m-1 mb-2"
                         style="font-size: 15px;">
                         <?= $value["tag_name"] ?>
-                        </button>
+                        </button> -->
                     <?php } ?>
                   
                  

@@ -62,7 +62,7 @@ class controller_auth_Admin
             $_SESSION["Admin"] = $email;
             $_SESSION["admin_id"] = $admin_id;
 
-            header("Location: index.php?action=Page_Categories");
+            header("Location: index.php?action=Page_Dashboard");
 
             exit();
 
